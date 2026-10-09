@@ -1,39 +1,20 @@
-# LÖYLY · Nordic Wellness Journal
+# LÖYLY — Nordic Wellness Journal
 
-A self-contained, mobile-first web application with zero external dependencies. All journal data stays on the device in browser `localStorage`.
+A mobile-friendly, offline-capable-after-first-load (excluding Google Fonts) single-page spa journal. No build tools or server required.
 
-## Run it
+## Run locally
 
-### Quick look on your computer
-Open `index.html` in a browser. Most features will work without running a server, although browser policies around local-file persistence vary.
+Open `index.html` in your browser, or serve the folder with `python3 -m http.server 8000` and open http://localhost:8000.
 
-### Reliable local run
-From this folder, run:
+## Publish on GitHub Pages
 
-```sh
-python3 -m http.server 8000
-```
+1. Add `index.html` at the root of your GitHub repository.
+2. Go to **Settings → Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**, select `main` and `/ (root)`, then save.
+4. Open the Pages URL provided by GitHub once deployment completes.
 
-Then visit `http://localhost:8000` on the same machine.
+## Data & privacy
 
-### Install on an iPhone
-Host the **entire folder** on an HTTPS web host (such as Netlify Drop, Cloudflare Pages, or GitHub Pages). Open the hosted URL on your iPhone in **Safari**, tap **Share**, and choose **Add to Home Screen**. The PWA is installable and caches its interface for offline use after the first visit. Hosting the HTML alone without `manifest.webmanifest`, `sw.js`, and the icons means installation/offline support may be limited.
+Data is stored in `localStorage` *on the browser/device where it's entered*. Different browsers and devices won't sync automatically. Use **Profile → Export backup** and **Import backup** to move or restore entries. Private/incognito modes and clearing browsing data can remove entries.
 
-**Important:** Browser storage is per device and per domain. If you change hosts, clear website data, or use private browsing, your saved visits may not follow you. Use **Profile → Export full journal (JSON)** for regular backups. **Import journal backup** restores that data to this or another device, replacing the journal on the destination.
-
-## Features
-- Profile: name, gender, weight, weekly visit target (1–6)
-- Log, edit, and delete spa visits
-- Unlimited sauna and cold plunge exposures, cycle number and activity tagging
-- Start/pause/reset timers; manual minutes and Fahrenheit temperature
-- Before/after mood scores and visit notes
-- Dashboard day/week/month/year with charts and weekly attendance tracking
-- History, trends, activity frequencies
-- Local persistence and JSON/CSV export; JSON import
-- Works without sign-in or external network dependencies
-
-## Notes
-- Timers measure wall-clock time; pausing or saving stops them. Only one timer runs at once. Timers continue counting while the app is backgrounded until you pause or save.
-- Exports store temperatures in degrees Fahrenheit and duration in minutes (CSV) or seconds (JSON).
-- A JSON import *replaces* the existing journal rather than merging visits. Back up existing data first.
-- This journal is **not** a medical device. It does not estimate personal cardiovascular, dementia, hormonal, or longevity effects from self-reported exposures.
+This is a journal, not a medical device. The app does not estimate clinical health benefits.
